@@ -1,214 +1,171 @@
-// main.js - Qontakto | CRM Landing Page Optimizado
-
+// main-b-2wwwxp.js
 document.addEventListener("DOMContentLoaded", () => {
-  // ================================
-  // 🎯 ANIMACIONES DE ENTRADA POR SCROLL
-  // ================================
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll(".fade-in, .fade-in-up").forEach(el => {
-    observer.observe(el);
-  });
-
-
-  // ================================
-  // 🌀 EFECTO PARALLAX SUAVE CON SCROLL
-  // ================================
-  let ticking = false;
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        document.querySelectorAll(".parallax").forEach(el => {
-          const speed = parseFloat(el.getAttribute("data-speed")) || 0.5;
-          const offset = window.pageYOffset * speed;
-          el.style.backgroundPositionY = `${-offset}px`;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
         });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
+    }, { threshold: 0.2 });
 
-  // Debug visual del parallax (opcional)
-  window.toggleParallaxDebug = () => {
-    document.querySelectorAll(".parallax").forEach(el => {
-      el.style.outline = el.style.outline ? "" : "2px dashed red";
-    });
-  };
-
-
-  // ================================
-  // ✨ RESALTAR TARJETAS AL HACER HOVER
-  // ================================
-  document.querySelectorAll(".col-md-4").forEach(card => {
-    card.addEventListener("mouseenter", () => {
-      card.classList.add("shadow-lg", "bg-light");
+    document.querySelectorAll(".fade-in, .fade-in-up").forEach((el) => {
+        observer.observe(el);
     });
 
-    card.addEventListener("mouseleave", () => {
-      card.classList.remove("shadow-lg", "bg-light");
+    let isScrolling = false;
+    window.addEventListener("scroll", () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                document.querySelectorAll(".parallax").forEach((el) => {
+                    const speed = parseFloat(el.getAttribute("data-speed")) || 0.5;
+                    const offset = window.pageYOffset * speed;
+                    el.style.backgroundPositionY = -offset + "px";
+                });
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
     });
-  });
 
-
-  // ================================
-  // 📚 ACORDEÓN INTERACTIVO (FAQ)
-  // ================================
-  document.querySelectorAll(".accordion-button").forEach(button => {
-    button.addEventListener("click", () => {
-      const isExpanded = button.getAttribute("aria-expanded") === "true";
-
-      // Cierra todos los acordeones
-      document.querySelectorAll(".accordion-button").forEach(btn => {
-        btn.setAttribute("aria-expanded", "false");
-        btn.classList.add("collapsed");
-      });
-
-      // Solo abre el seleccionado
-      if (!isExpanded) {
-        button.setAttribute("aria-expanded", "true");
-        button.classList.remove("collapsed");
-      }
-    });
-  });
-
-
-  // ================================
-  // 📝 VALIDACIÓN Y ENVÍO DEL FORMULARIO
-  // ================================
-  const form = document.querySelector("form");
-
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const nombre = form.querySelector("#nombre");
-      const email = form.querySelector("#email");
-      const mensaje = form.querySelector("#mensaje");
-      let errores = [];
-
-      // Limpiar errores anteriores
-      document.querySelectorAll(".error-msg").forEach(el => el.remove());
-      form.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
-
-      const successMsg = form.querySelector(".success-msg");
-      if (successMsg) successMsg.remove();
-
-      // Validaciones
-      if (!nombre.value.trim() || nombre.value.trim().length < 3) {
-        errores.push({ field: nombre, message: "El nombre debe tener al menos 3 caracteres." });
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.value.trim())) {
-        errores.push({ field: email, message: "Ingresa un correo electrónico válido." });
-      }
-
-      if (!mensaje.value.trim() || mensaje.value.trim().length < 10) {
-        errores.push({ field: mensaje, message: "El mensaje debe tener al menos 10 caracteres." });
-      }
-
-      // Mostrar errores si existen
-      if (errores.length > 0) {
-        errores.forEach(error => {
-          const errorMsg = document.createElement("div");
-          errorMsg.className = "error-msg text-danger small mt-1 fade-in";
-          errorMsg.textContent = error.message;
-          error.field.classList.add("is-invalid");
-          error.field.parentNode.appendChild(errorMsg);
+    window.toggleParallaxDebug = () => {
+        document.querySelectorAll(".parallax").forEach((el) => {
+            el.style.outline = el.style.outline ? "" : "2px dashed red";
         });
-        return;
-      }
+    };
 
-      // Mostrar éxito y resetear formulario
-      const success = document.createElement("div");
-      success.className = "success-msg alert alert-success mt-3 fade-in";
-      success.textContent = "✅ Mensaje enviado correctamente. Nos pondremos en contacto.";
-      form.appendChild(success);
-      form.reset();
+    // Hover effects for .col-md-4
+    document.querySelectorAll(".col-md-4").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+            el.classList.add("shadow-lg", "bg-light");
+        });
+        el.addEventListener("mouseleave", () => {
+            el.classList.remove("shadow-lg", "bg-light");
+        });
     });
-  }
 
+    // Accordion toggle for .accordion-button
+    document.querySelectorAll(".accordion-button").forEach((el) => {
+        el.addEventListener("click", () => {
+            const isExpanded = el.getAttribute("aria-expanded") === "true";
+            document.querySelectorAll(".accordion-button").forEach((btn) => {
+                btn.setAttribute("aria-expanded", "false");
+                btn.classList.add("collapsed");
+            });
+            if (!isExpanded) {
+                el.setAttribute("aria-expanded", "true");
+                el.classList.remove("collapsed");
+            }
+        });
+    });
 
-  // ================================
-  // 🍪 MODAL DE COOKIES
-  // ================================
-  const modal = document.getElementById("cookie-modal");
-  const acceptBtn = document.getElementById("accept-cookies");
+    // Form validation
+    const form = document.querySelector("form");
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = form.querySelector("#nombre");
+            const email = form.querySelector("#email");
+            const message = form.querySelector("#mensaje");
+            let errors = [];
 
-  if (modal && acceptBtn) {
-    if (!localStorage.getItem("cookies_aceptadas")) {
-      modal.classList.add("show");
+            document.querySelectorAll(".error-msg").forEach((el) => el.remove());
+            form.querySelectorAll(".is-invalid").forEach((el) => el.classList.remove("is-invalid"));
 
-      setTimeout(() => {
-        if (modal.classList.contains("show")) {
-          modal.classList.remove("show");
-        }
-      }, 10000); // Ocultar después de 10 segundos
+            const successMsg = form.querySelector(".success-msg");
+            if (successMsg) successMsg.remove();
+
+            if (!name.value.trim() || name.value.trim().length < 3) {
+                errors.push({ field: name, message: "El nombre debe tener al menos 3 caracteres." });
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                errors.push({ field: email, message: "Ingresa un correo electrónico válido." });
+            }
+
+            if (!message.value.trim() || message.value.trim().length < 10) {
+                errors.push({ field: message, message: "El mensaje debe tener al menos 10 caracteres." });
+            }
+
+            if (errors.length > 0) {
+                errors.forEach((error) => {
+                    const errorMsg = document.createElement("div");
+                    errorMsg.className = "error-msg text-danger small mt-1 fade-in";
+                    errorMsg.textContent = error.message;
+                    error.field.classList.add("is-invalid");
+                    error.field.parentNode.appendChild(errorMsg);
+                });
+                return;
+            }
+
+            const successDiv = document.createElement("div");
+            successDiv.className = "success-msg alert alert-success mt-3 fade-in";
+            successDiv.textContent = "✅ Mensaje enviado correctamente. Nos pondremos en contacto.";
+            form.appendChild(successDiv);
+            form.reset();
+        });
     }
 
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookies_aceptadas", "true");
-      modal.classList.remove("show");
-      cargarAnalytics(); // Cargar Analytics solo si acepta cookies
-    });
-  }
-
-  function cargarAnalytics() {
-    const script = document.createElement("script");
-    script.setAttribute("async", "");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-MJQBRLE59Y ";
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-MJQBRLE59Y");
-  }
-
-
-  // ================================
-  // 📱 CERRAR MENÚ MÓVIL AL HACER CLIC EN UN LINK
-  // ================================
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-  const navbarCollapse = document.getElementById("mainNavbar");
-
-  if (navLinks && navbarCollapse) {
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        if (navbarCollapse.classList.contains("show")) {
-          new bootstrap.Collapse(navbarCollapse).toggle();
+    // Cookie modal
+    const cookieModal = document.getElementById("cookie-modal");
+    const acceptCookies = document.getElementById("accept-cookies");
+    if (cookieModal && acceptCookies) {
+        if (!localStorage.getItem("cookies_aceptadas")) {
+            cookieModal.classList.add("show");
+            setTimeout(() => {
+                if (cookieModal.classList.contains("show")) {
+                    cookieModal.classList.remove("show");
+                }
+            }, 10000);
         }
-      });
-    });
-  }
-
-
-  // ================================
-  // 💡 REEMPLAZAR IMÁGENES POR .webp SI EL NAVEGADOR LO SOPORTA
-  // ================================
-  soportaWebP().then(esCompatible => {
-    if (esCompatible) {
-      document.querySelectorAll("img[data-webp]").forEach(img => {
-        img.src = img.dataset.webp;
-      });
+        acceptCookies.addEventListener("click", () => {
+            localStorage.setItem("cookies_aceptadas", "true");
+            cookieModal.classList.remove("show");
+            const script = document.createElement("script");
+            script.setAttribute("async", "");
+            script.src = "https://www.googletagmanager.com/gtag/js?id=G-MJQBRLE59Y";
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ "js": new Date() });
+            window.dataLayer.push({ "config": "G-MJQBRLE59Y" });
+        });
     }
-  });
 
-  function soportaWebP() {
-    return new Promise(resolve => {
-      const img = new Image();
-      img.onload = () => resolve(img.width > 0 && img.height > 0);
-      img.onerror = () => resolve(false);
-      img.src = "data:image/webp;base64,UklGRhIAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSAIAAAARAAEAAQAAAFQAAABwAAQAAwAA";
+    // Navbar collapse
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    const mainNavbar = document.getElementById("mainNavbar");
+    if (navLinks && mainNavbar) {
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                if (mainNavbar.classList.contains("show")) {
+                    new bootstrap.Collapse(mainNavbar).toggle();
+                }
+            });
+        });
+    }
+
+    // WebP support for images
+    new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img.width > 0 && img.height > 0);
+        img.onerror = () => resolve(false);
+        img.src = "data:image/webp;base64,UklGRhIAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSAIAAAARAAEAAQAAAFQAAABwAAQAAwAA";
+    }).then((isWebpSupported) => {
+        if (isWebpSupported) {
+            document.querySelectorAll("img[data-webp]").forEach((el) => {
+                el.src = el.dataset.webp;
+            });
+        }
     });
+});
+document.addEventListener("mouseout", function (e) {
+  if (e.clientY < 50 && !localStorage.getItem("exitIntentShown")) {
+    localStorage.setItem("exitIntentShown", "true");
+    const modal = document.getElementById("exit-intent-modal");
+    modal && modal.classList.add("show");
   }
 });
+setTimeout(() => {
+  const wp = document.getElementById("whatsapp-button");
+  wp && (wp.style.display = "block");
+}, 20000);
