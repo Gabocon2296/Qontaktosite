@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta y Títulos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiero ser Distribuidor | Qontakto</title>
+
+  <!-- Librerías CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #157347, #198754);
+    }
+    .navbar-brand, .nav-link, .footer {
+      color: white !important;
+    }
+    .contador-num {
+      font-size: 2.5rem;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        color: #198754;
+      }
+      50% {
+        transform: scale(1.2);
+        color: #0d6efd;
+      }
+    }
+    .plan-card {
+      border-radius: 20px;
+      border: none;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    }
+    .plan-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    }
+    .footer {
+      background-color: #111;
+    }
+    .btn-animated {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-animated:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Qontakto</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="planes.html">Planes</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiero_Ser_distribuidor.html">Distribuidor</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center text-white py-5" style="background: linear-gradient(to right, #157347, #198754);">
+  <div class="container">
+    <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">💼 Sé parte de algo GRANDE</h1>
+    <p class="lead mt-3 animate__animated animate__fadeInUp animate__delay-1s">Conviértete en distribuidor oficial de Qontakto y desbloquea ingresos ilimitados. Tu momento es AHORA.</p>
+    <a href="#planes-distribuidor" class="btn btn-light btn-lg mt-4 fw-bold shadow animate__animated animate__fadeInUp animate__delay-2s">Ver planes disponibles →</a>
+  </div>
+</header>
+
+<!-- Cinta Promocional -->
+<div class="bg-success text-white py-2 overflow-hidden">
+  <div class="container-fluid">
+    <marquee behavior="scroll" direction="left" scrollamount="6" class="fw-semibold">
+      🚨 ¡Genera ingresos pasivos desde tu celular! Sin jefes, sin oficina, sin excusas. Hoy es tu día. 💸🚀
+    </marquee>
+  </div>
+</div>
+
+<!-- Sección Intro -->
+<section class="py-5 text-center" style="background: linear-gradient(to right, #ffffff, #f7fdf9); border-bottom: 1px solid #ddd;">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-success" data-aos="fade-up">🌟 ¿Por qué ser Distribuidor Qontakto?</h1>
+    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">No solo vendes un CRM. Vendes tiempo libre, tranquilidad y resultados reales para emprendedores que quieren automatizar su vida. 💼</p>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-10">
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <span class="badge bg-success-subtle text-success fs-6 p-3 rounded-pill"><i class="fas fa-dollar-sign me-2"></i>Hasta $30,000 MXN mensuales</span>
+          <span class="badge bg-success-subtle text-success fs-6 p-3 rounded-pill"><i class="fas fa-key me-2"></i>Acceso exclusivo a claves y soporte</span>
+          <span class="badge bg-success-subtle text-success fs-6 p-3 rounded-pill"><i class="fas fa-laptop me-2"></i>No necesitas experiencia técnica</span>
+          <span class="badge bg-success-subtle text-success fs-6 p-3 rounded-pill"><i class="fas fa-clock me-2"></i>Invierte una vez, gana para siempre</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Planes Distribuidor -->
+<section id="planes-distribuidor" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success fw-bold">💳 Elige tu nivel de ingresos</h2>
+      <p class="text-muted">Cada plan te acerca más a tu libertad financiera. Comienza hoy.</p>
+    </div>
+
+    <!-- Básico -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card plan-card h-100">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-success">🌱 Básico</h5>
+            <p class="mb-3">Ideal para empezar. Aprende rápido. Gana desde el principio.</p>
+            <h4>$2,999 MXN</h4>
+            <ul class="list-unstyled small mt-3 text-start">
+              <li><i class="fas fa-check-circle text-success me-2"></i>Acceso al generador de claves</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Soporte técnico básico</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Guía de inicio rápido</li>
+            </ul>
+            <a href="#" class="btn btn-outline-success w-100 mt-3">Comenzar ahora</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro -->
+      <div class="col-md-4">
+        <div class="card plan-card h-100 shadow-sm border-success">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-success">📈 Pro</h5>
+            <p class="mb-3">Gana más con herramientas avanzadas y formación personalizada.</p>
+            <h4>$6,999 MXN</h4>
+            <ul class="list-unstyled small mt-3 text-start">
+              <li><i class="fas fa-check-circle text-success me-2"></i>Todos los beneficios del plan Básico</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>2 sesiones de asesoría privada</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Panel de administración completo</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Acceso prioritario a actualizaciones</li>
+            </ul>
+            <a href="#" class="btn btn-success w-100 mt-3">Empieza a ganar más</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elite -->
+      <div class="col-md-4">
+        <div class="card plan-card h-100 border-danger shadow-lg">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-danger">🏆 Elite</h5>
+            <p class="mb-3">Marca blanca + sitio web propio + automatización total. El paquete completo.</p>
+            <h4>$14,999 MXN</h4>
+            <ul class="list-unstyled small mt-3 text-start">
+              <li><i class="fas fa-check-circle text-success me-2"></i>Todos los beneficios del plan Pro</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Diseño personalizado</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Página web lista para vender</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i>Asistencia VIP y mentoría directa</li>
+            </ul>
+            <a href="#" class="btn btn-danger w-100 mt-3">Adquirir paquete elite</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-success mb-4">💬 Historias reales de quienes ya están ganando</h2>
+    <div class="row g-4">
+
+      <!-- Testimonio 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <p class="fst-italic">“Antes trabajaba 12 horas diarias sin salir de casa. Hoy tengo 3 personas comprando mi plan cada semana. Mi negocio crece mientras duermo.”</p>
+            <div class="text-warning">★★★★★</div>
+            <p class="fw-bold mt-2 text-success">— Laura M., Guadalajara</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <p class="fst-italic">“Yo pensaba que esto era cosa de expertos… hasta que vi cómo mis ventas explotaban en menos de un mes. Ahora vivo de lo que antes era un trabajo extra.”</p>
+            <div class="text-warning">★★★★★</div>
+            <p class="fw-bold mt-2 text-success">— Mario R., CDMX</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <p class="fst-italic">“No quería dejar mi empleo. Hasta que vi que podía ganar más en 2 semanas que en 1 mes trabajando como empleado. Hoy soy dueño de mi tiempo.”</p>
+            <div class="text-warning">★★★★★</div>
+            <p class="fw-bold mt-2 text-success">— David T., Monterrey</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer text-white py-5 mt-5">
+    <div class="container text-center">
+      <p class="mb-0">© 2025 Qontakto · Revoluciona tus ingresos 💼</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({ once: true });</script>
+
+</body>
+</html>
